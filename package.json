@@ -18,7 +18,18 @@
         "commands": [{
             "command": "extension.sayHello",
             "title": "Hello World"
-        }]
+        }],
+        "configuration": {
+            "type": "object",
+            "title": "Special Open File configuration",
+            "properties": {
+                "specialOpenFile.folders": {
+                    "type": "string",
+                    "description": "The paths to search when the specialOpenFile command is run, separated by pipes",
+                    "default": ""
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",

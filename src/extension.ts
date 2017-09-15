@@ -17,8 +17,12 @@ export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
         // The code you place here will be executed every time your command is executed
 
+        const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('specialOpenFile');
+        const folders: string[] = config.get('folders', '').split('|');
+        const ff = config.get('folders', '');
+
         // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
+        vscode.window.showInformationMessage(ff);
     });
 
     context.subscriptions.push(disposable);
