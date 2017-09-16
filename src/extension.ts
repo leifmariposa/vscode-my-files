@@ -24,6 +24,16 @@ export function checkError(err: NodeJS.ErrnoException): boolean {
     return !!err;
 }
 
+function getFileName(file: string): string {
+    var forwardSlash = file.lastIndexOf("/");
+    var backSlash = file.lastIndexOf("\\");
+    if (forwardSlash === -1 && backSlash === -1) {
+        return file;
+    }
+
+    return file.substring((forwardSlash > backSlash) ? forwardSlash + 1 : backSlash + 1);
+}
+
 export function showFileList(dir?: string): void {
     dir = dir || cwd;
 
@@ -66,29 +76,14 @@ export function showFileList(dir?: string): void {
             return arr;
         }, []);
 
-        //const cmdData = { cwd, files };
-        //const options: string[] = commands.getList('top', cmdData).concat(
-        //    files.map(file => file.label),
-        //    commands.getList('bottom', cmdData)
-        //);
+        var displayFiles = files.map(file => {
+            return { description: file.path, label: file.label, filePath: file.path }
+        });
 
-        const options: string[] = files.map(file => file.label);
-
-        vscode.window.showQuickPick(options).then(label => {
-            if (!label) { return; }
-
-            const file: FileData = files.find(file => file.label === label);
-
-            // If a command is being run then don't show the default list of files and folders
-            //if (commands.handle(label, cmdData)) { return; }
-
-            if (file.isDirectory) {
-                showFileList(file.path);
-            } else if (file.isFile) {
-                vscode.workspace.openTextDocument(file.path).then(doc => {
-                    vscode.window.showTextDocument(doc);
-                });
-            }
+        vscode.window.showQuickPick(displayFiles ).then(displayFile => {
+            vscode.workspace.openTextDocument(displayFile.filePath).then(document=> {
+                vscode.window.showTextDocument(document);
+            });
         });
     });
 }
@@ -97,21 +92,16 @@ export function showFileList(dir?: string): void {
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "special-open-file" is now active!');
-
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
     let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-        // The code you place here will be executed every time your command is executed
 
         const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('specialOpenFile');
         const folders: string[] = config.get('folders', '').split('|');
-        const ff = config.get('folders', '');
+        //const ff = config.get('folders', '');
 
         showFileList("c:\\dropbox\\info");
+        //folders.forEach(folder => {
+        //}
+
 
         // Display a message box to the user
         //vscode.window.showInformationMessage(ff);
