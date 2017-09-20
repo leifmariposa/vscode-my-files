@@ -1,6 +1,6 @@
-# special-open-file README
+# my-files README
 
-This is the README for your extension "special-open-file". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "my-files". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 

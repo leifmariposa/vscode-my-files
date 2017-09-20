@@ -32,9 +32,9 @@ var walk = function(dir) {
 
 export function activate(context: vscode.ExtensionContext) {
 
-    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
+    let disposable = vscode.commands.registerCommand('extension.myFiles', () => {
 
-        const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('specialOpenFile');
+        const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('myFiles');
         const folders: string[] = config.get('folders', '').split('|');
 
         var files = [];
@@ -45,9 +45,12 @@ export function activate(context: vscode.ExtensionContext) {
         files.sort(compare);
 
         vscode.window.showQuickPick(files).then(file => {
-            vscode.workspace.openTextDocument(file.description).then(document=> {
-                vscode.window.showTextDocument(document);
-            });
+            console.log(file);
+            if (file) {
+                vscode.workspace.openTextDocument(file.description).then(document=> {
+                    vscode.window.showTextDocument(document);
+                });
+            }
         });
     });
 

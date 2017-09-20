@@ -1,6 +1,6 @@
 {
-    "name": "special-open-file",
-    "displayName": "special-open-file",
+    "name": "my-files",
+    "displayName": "my-files",
     "description": "",
     "version": "0.0.1",
     "publisher": "leifmariposa",
@@ -11,21 +11,21 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.myFiles"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
+            "command": "extension.myFiles",
+            "title": "My Files"
         }],
         "configuration": {
             "type": "object",
-            "title": "Special Open File configuration",
+            "title": "My Files configuration",
             "properties": {
-                "specialOpenFile.folders": {
+                "myFiles.folders": {
                     "type": "string",
-                    "description": "The paths to search when the specialOpenFile command is run, separated by pipes",
+                    "description": "The paths to search when the myFiles command is run, separated by pipes",
                     "default": ""
                 }
             }
