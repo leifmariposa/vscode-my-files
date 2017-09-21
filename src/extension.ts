@@ -29,7 +29,6 @@ var walk = function(dir) {
     return results
 }
 
-
 export function activate(context: vscode.ExtensionContext) {
 
     let disposable = vscode.commands.registerCommand('extension.myFiles', () => {
@@ -45,7 +44,6 @@ export function activate(context: vscode.ExtensionContext) {
         files.sort(compare);
 
         vscode.window.showQuickPick(files).then(file => {
-            console.log(file);
             if (file) {
                 vscode.workspace.openTextDocument(file.description).then(document=> {
                     vscode.window.showTextDocument(document);
