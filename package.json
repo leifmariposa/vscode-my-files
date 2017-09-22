@@ -1,7 +1,7 @@
 {
     "name": "my-files",
-    "displayName": "my-files",
-    "description": "",
+    "displayName": "My Files",
+    "description": "Provides a list of files from a preconfigured location that can be filtered and selected.",
     "version": "0.0.1",
     "publisher": "leifmariposa",
     "icon": "images/files.png",
