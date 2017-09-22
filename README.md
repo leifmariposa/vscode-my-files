@@ -1,39 +1,20 @@
-# My Files README
+# My Files
 
-This is the README for your extension "my-files". After writing up a brief description, we recommend including the following sections.
+Provides a list of files from a preconfigured location that can be filtered and selected.
 
-## Features
+![Image of Command](https://raw.githubusercontent.com/leifmariposa/vscode-my-files/master/images/command.png)
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+![Image of Command Executed with file list](https://raw.githubusercontent.com/leifmariposa/vscode-my-files/master/images/list_of_files.png)
 
-For example if there is an image subfolder under your extension project workspace:
+## Settings
 
-\!\[feature X\]\(images/feature-x.png\)
+* `myFiles.folders`: Paths to search when the myFiles command is run, separated by pipes
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Source
 
-## Requirements
+[Github](https://github.com/leifmariposa/vscode-my-files)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
+## Change Log
 
 ### Version 0.0.1
 First version
