@@ -4,6 +4,12 @@
     "description": "",
     "version": "0.0.1",
     "publisher": "leifmariposa",
+    "icon": "images/files.png",
+    "homepage":"https://github.com/leifmariposa/vscode-my-files/blob/master/README.md",
+    "repository": {
+		"type":"git",
+		"url":"https://github.com/leifmariposa/vscode-my-files.git"
+	},
     "engines": {
         "vscode": "^1.16.0"
     },
